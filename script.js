@@ -14,10 +14,8 @@ function getComputerChoice() {
 function getHumanChoice() {
     let choice = String(prompt("Enter your choice (rock, paper or scissor)")).toLowerCase();
     if (choice !== "rock" && choice !== "paper" && choice !== "scissor") {
-        console.log("Error");
         return getHumanChoice(); 
     } else {
-        console.log("Success");
         return choice;
     }
 }
@@ -45,3 +43,4 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+console.log(humanSelection, computerSelection)
