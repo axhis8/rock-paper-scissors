@@ -15,25 +15,27 @@ function getComputerChoice() {
 }
 
 function checkWin(score1, score2) {
-    if (score1 > 5) {
-    console.log("You win!");
+    if (score1 > score2) {
+    return "You won the game!";
     } 
-    else if (5 < score2) {
-    console.log("Game Over. You lose!");
+
+    else if (score1 < score2) {
+    return "Game Over. You lost this game.";
     }
-    else {
-    console.log("Nobody wins. It's a tie.");
+    
+    else if (score1 === score2) {
+    return "Nobody wins. It's a tie.";
     }   
 }
 
 let humanScore = 0;
 let computerScore = 0;
+let roundsPlayed = 0;
 let choice;
 
 const hands = document.querySelector("#buttons");
 
 hands.addEventListener('click', (event) => {
-    event.stopPropagation();
     let target = event.target;
 
     switch (target.id) {
@@ -78,15 +80,14 @@ function playRound() {
 
     score.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
     
-    // checkWin(humanScore, computerScore);
+    roundsPlayed++;
+    if (roundsPlayed === 5) {
+        winText.textContent = score.textContent;
+        score.textContent = checkWin(humanScore, computerScore);
+        roundsPlayed = 0;
+        humanScore = 0;
+        computerScore = 0;
+        computerHand.src = "./images/paper.png"
+    }
 }
-
-
-//function playGame() {
-    //for (let i = 0; i < 5; i++) {
-        //playRound();
-    //}
-//}
-
-//playGame();
 
