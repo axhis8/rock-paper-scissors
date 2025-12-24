@@ -47,6 +47,8 @@ body {
 
 #computerHand {
     margin-top: 0px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 .computer {
@@ -87,6 +89,11 @@ body {
 .hand:hover {
     filter: brightness(95%);
     transform: scale(1.15);
+}
+
+.hand:active {
+    filter: brightness(90%);
+    transform: scale(1.05);
 }
 
 .computerIcon {

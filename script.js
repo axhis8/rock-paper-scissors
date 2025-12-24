@@ -1,15 +1,15 @@
 function getComputerChoice() {
     let randNum = Math.random();
     if (randNum <= 0.33) {
-        computerHand.src = "./images/rock.png"
+        computerHand.src = "./images/rock.png";
         return "rock";
     } 
     else if (randNum > 0.33 && randNum < 0.66) {
-        computerHand.src = "./images/paper.png"
+        computerHand.src = "./images/paper.png";
         return "paper";
     } 
     else if (randNum >= 0.66) {
-        computerHand.src = "./images/scissors.png"
+        computerHand.src = "./images/scissors.png";
         return "scissors";
     }
 }
