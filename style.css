@@ -17,16 +17,38 @@ button {
 .gameTitle {
     display: flex;
     justify-content: center;
-    font-size: 3.5em;
+    font-size: 4.5em;
     font-weight: 600;
     text-shadow: #979797 1px 0 10px;            
     letter-spacing: 4px;
-    margin: 50px 50px 170px;    
+    margin: 50px;    
 }
 
-.players {
+#score {
+    display: flex;
+    justify-content: center;
+    font-size: 4em;
+    font-weight: 500;
+    margin: 20px;   
+}
+
+#winText {
+    font-size: 2em;
+    font-weight: 500;
+        margin-bottom: 40px;   
+
+}
+
+.topUI {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainUI {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #computerHand {
@@ -69,7 +91,7 @@ button {
 
 .hand:hover {
     filter: brightness(95%);
-    transform: scale(115%);
+    transform: scale(1.15);
 }
 
 .computerIcon {
