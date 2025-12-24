@@ -6,6 +6,13 @@
   font-style: normal;
 }
 
-
+#gameTitle {
+    display: flex;
+    justify-content: center;
+    font-size: 3.5em;
+    letter-spacing: 4px;
+    margin: 50px;
+    
+}
 
 
