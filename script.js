@@ -1,21 +1,24 @@
 function getComputerChoice() {
     let randNum = Math.random();
     if (randNum <= 0.33) {
+        computerHand.src = "./images/rock.png"
         return "rock";
     } 
     else if (randNum > 0.33 && randNum < 0.66) {
+        computerHand.src = "./images/paper.png"
         return "paper";
     } 
     else if (randNum >= 0.66) {
+        computerHand.src = "./images/scissors.png"
         return "scissors";
     }
 }
 
 function checkWin(score1, score2) {
-    if (score1 > score2) {
+    if (score1 > 5) {
     console.log("You win!");
     } 
-    else if (score1 < score2) {
+    else if (5 < score2) {
     console.log("Game Over. You lose!");
     }
     else {
@@ -46,12 +49,14 @@ hands.addEventListener('click', (event) => {
     }
 
     playRound();
+    
 })
+
+const computerHand = document.querySelector("#computerHand");
 
 const score = document.querySelector("#score");
 
 const winText =document.querySelector("#winText");
-
 
 
 function playRound() {
