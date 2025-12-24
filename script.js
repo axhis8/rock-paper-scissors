@@ -2,15 +2,15 @@ function getComputerChoice() {
     let randNum = Math.random();
     if (randNum <= 0.33) {
         computerHand.src = "./images/rock.png";
-        return "rock";
+        return "Rock";
     } 
     else if (randNum > 0.33 && randNum < 0.66) {
         computerHand.src = "./images/paper.png";
-        return "paper";
+        return "Paper";
     } 
     else if (randNum >= 0.66) {
         computerHand.src = "./images/scissors.png";
-        return "scissors";
+        return "Scissors";
     }
 }
 
@@ -30,7 +30,7 @@ function checkWin(score1, score2) {
 
 let humanScore = 0;
 let computerScore = 0;
-let roundsPlayed = 0;
+let roundsPlayed = 5;
 let choice;
 
 const hands = document.querySelector("#buttons");
@@ -40,13 +40,13 @@ hands.addEventListener('click', (event) => {
 
     switch (target.id) {
         case "rock":
-            choice = "rock";
+            choice = "Rock";
             break;
         case "paper":
-            choice = "paper";
+            choice = "Paper";
             break;
         case "scissors":
-            choice = "scissors";
+            choice = "Scissors";
             break;
     }
 
@@ -69,9 +69,9 @@ function playRound() {
     if (choice === computerChoice) {
         winText.textContent = "It's a tie!";
     }
-    else if (choice === "rock" && computerChoice === "scissors" || 
-        choice === "paper" && computerChoice === "rock" ||
-        choice === "scissors" && computerChoice === "paper") {
+    else if (choice === "Rock" && computerChoice === "Scissors" || 
+        choice === "Paper" && computerChoice === "Rock" ||
+        choice === "Scissors" && computerChoice === "Paper") {
             winText.textContent = `You win! ${choice} beats ${computerChoice}!`;
             humanScore++;
     }
@@ -82,16 +82,16 @@ function playRound() {
 
     score.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
     
-    roundsPlayed++;
-    playedRoundDiv.textContent = `Rounds played: ${roundsPlayed}`;
+    roundsPlayed--;
+    playedRoundDiv.textContent = `Rounds left: ${roundsPlayed}`;
 
-    if (roundsPlayed === 5) {
+    if (roundsPlayed === 0) {
         winText.textContent = score.textContent;
         score.textContent = checkWin(humanScore, computerScore);
-        roundsPlayed = 0;
+        roundsPlayed = 5;
         humanScore = 0;
         computerScore = 0;
-        playedRoundDiv.textContent = "5 Rounds. Game Over!";
+        playedRoundDiv.textContent = "Game Over!";
         computerHand.src = "./images/paper.png"
     }
 }
