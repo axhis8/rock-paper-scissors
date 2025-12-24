@@ -20,9 +20,9 @@ function checkWin(score1, score2) {
     } 
 
     else if (score1 < score2) {
-    return "Game Over. You lost this game.";
+    return "You lost this game.";
     }
-    
+
     else if (score1 === score2) {
     return "Nobody wins. It's a tie.";
     }   
@@ -58,7 +58,9 @@ const computerHand = document.querySelector("#computerHand");
 
 const score = document.querySelector("#score");
 
-const winText =document.querySelector("#winText");
+const winText = document.querySelector("#winText");
+
+const playedRoundDiv = document.querySelector("#roundsPlayed");
 
 
 function playRound() {
@@ -81,12 +83,15 @@ function playRound() {
     score.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
     
     roundsPlayed++;
+    playedRoundDiv.textContent = `Rounds played: ${roundsPlayed}`;
+
     if (roundsPlayed === 5) {
         winText.textContent = score.textContent;
         score.textContent = checkWin(humanScore, computerScore);
         roundsPlayed = 0;
         humanScore = 0;
         computerScore = 0;
+        playedRoundDiv.textContent = "5 Rounds. Game Over!";
         computerHand.src = "./images/paper.png"
     }
 }
