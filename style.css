@@ -1,18 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Play:wght@400;700&display=swap');
 
-* {
-  font-family: "Play", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Play", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-#gameTitle {
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.gameTitle {
     display: flex;
     justify-content: center;
     font-size: 3.5em;
+    font-weight: 600;
+    text-shadow: #979797 1px 0 10px;            
     letter-spacing: 4px;
-    margin: 50px;
-    
+    margin: 50px 50px 170px;    
 }
 
+.players {
+    display: flex;
+    justify-content: space-between;
+}
+
+#computerHand {
+    margin-top: 0px;
+}
+
+.computer {
+    margin: 0 180px 0 0;
+}
+
+.player {
+    margin: 0 0 0 80px;
+}
+
+.hands {
+    display: flex;
+}
+
+.users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playerName {
+    font-size: 4em;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.hand,
+#computerHand {
+    width: 140px;
+}
+
+.hand {
+    transition: 0.3s;
+}
+
+.hand:hover {
+    filter: brightness(95%);
+    transform: scale(115%);
+}
+
+.computerIcon {
+    width: 150px;
+}
 
