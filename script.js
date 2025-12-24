@@ -27,9 +27,10 @@ let humanScore = 0;
 let computerScore = 0;
 let choice;
 
-const button = document.querySelector("#buttons");
+const hands = document.querySelector("#buttons");
 
-button.addEventListener('click', (event) => {
+hands.addEventListener('click', (event) => {
+    event.stopPropagation();
     let target = event.target;
 
     switch (target.id) {
@@ -47,25 +48,30 @@ button.addEventListener('click', (event) => {
     playRound();
 })
 
+const score = document.querySelector("#score");
+
+const winText =document.querySelector("#winText");
+
+
 
 function playRound() {
     const computerChoice = getComputerChoice();
 
     if (choice === computerChoice) {
-        console.log("It's a tie!");
+        winText.textContent = "It's a tie!";
     }
     else if (choice === "rock" && computerChoice === "scissors" || 
         choice === "paper" && computerChoice === "rock" ||
         choice === "scissors" && computerChoice === "paper") {
-            console.log(`You win! ${choice} beats ${computerChoice}!`);
+            winText.textContent = `You win! ${choice} beats ${computerChoice}!`;
             humanScore++;
     }
     else {
-        console.log(`You lose! ${computerChoice} beats ${choice}!`)
+        winText.textContent = `You lose! ${computerChoice} beats ${choice}!`
         computerScore++;
     }
 
-    console.log(`You: ${humanScore} \nComputer: ${computerScore}`);
+    score.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
     
     // checkWin(humanScore, computerScore);
 }
