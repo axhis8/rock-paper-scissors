@@ -2,7 +2,7 @@
 
 ## About this Project
 
-This game is was originally made for the console to play and now includes basic DOM manipulation for interactive gameplay.
+This game was originally made for the console to play and now includes basic DOM manipulation for interactive gameplay.
 
 I didn't want to delve too much into design, as the purpose of this project was to play with the DOM.
 
