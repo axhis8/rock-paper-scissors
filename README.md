@@ -4,6 +4,8 @@
 
 This game is was originally made for the console to play and now includes basic DOM manipulation for interactive gameplay.
 
+I didn't want to delve too much into design, as the purpose of this project was to play with the DOM.
+
 This project is a task from The Odin Project, a structured full stack development course. You can learn at your own pace and it starts from 0 to getting employed. I highly recommend taking this course. More on [The Odin Project](https://www.theodinproject.com/)
 
 ## Live Demo
