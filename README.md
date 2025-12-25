@@ -37,4 +37,4 @@ Play the game online: [Rock Paper Scissors](https://axhis8.github.io/rock-paper-
 
 ## Credits
 
-- Restart Button by [Solar Icons](https://www.svgrepo.com/) in [svgrepo](https://www.svgrepo.com/svg/524881/restart-square), modified for white background
+- Restart Button by [Solar Icons](https://www.figma.com/de-de/community/file/1166831539721848736/solar-icons-set?ref=svgrepo.com) in [svgrepo](https://www.svgrepo.com/svg/524881/restart-square), modified for white background
