@@ -92,7 +92,6 @@ function playRound() {
         humanScore = 0;
         computerScore = 0;
         playedRoundDiv.textContent = "Game Over!";
-        computerHand.src = "./images/paper.png"
     }
 }
 

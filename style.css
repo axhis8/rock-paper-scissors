@@ -26,6 +26,7 @@ body {
 #roundsPlayed {
     font-size: 1.7em;
     font-weight: 500;
+    height: 31.5px;
 }
 
 #score {
@@ -35,7 +36,7 @@ body {
 
 #winText {
     font-size: 2em;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
 }
 
 .topUI {
