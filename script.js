@@ -31,11 +31,17 @@ function checkWin(score1, score2) {
 let humanScore = 0;
 let computerScore = 0;
 let roundsPlayed = 5;
+let restartMenu = false;
 let choice;
 
-const hands = document.querySelector(".buttons");
+const handsContainer = document.querySelector(".buttons");
+const hands = document.querySelectorAll(".hand");
 
-hands.addEventListener('click', (event) => {
+handsContainer.addEventListener('click', (event) => {
+    if (restartMenu) {
+        return;
+    }
+
     let target = event.target;
 
     if (target.classList.contains("rock")) {
@@ -62,6 +68,46 @@ const winText = document.querySelector(".win-text");
 
 const playedRoundDiv = document.querySelector(".rounds-played");
 
+const restartButton = document.querySelector(".restart-button");
+
+const restartButtonImage = document.createElement("img");
+restartButtonImage.src = "./images/restartButton.png";
+restartButtonImage.style = "width: 240px; margin-right: 180px; cursor: pointer; transition: 0.2s;";
+
+restartButtonImage.addEventListener('mouseenter', () => {
+    if (restartMenu) {
+    restartButtonImage.style.transform = "scale(1.1)";
+    }
+})
+
+restartButtonImage.addEventListener('mouseleave', () => {
+    if (restartMenu) {
+    restartButtonImage.style.transform = "scale(1)";
+    }
+})
+
+restartButtonImage.addEventListener('mousedown', () => {
+    if (restartMenu) {
+    restartButtonImage.style.transform = "scale(0.9)";
+    }
+})
+
+restartButtonImage.addEventListener('click', () => {
+    roundsPlayed = 5;
+    humanScore = 0;
+    computerScore = 0;
+
+    playedRoundDiv.textContent = "";
+    score.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
+    winText.textContent = "Best of 5";
+
+    hands.forEach(hand => hand.style.pointerEvents = "auto");
+
+    restartMenu = false;
+    restartButtonImage.style.transform = "scale(1)";
+    restartButton.removeChild(restartButtonImage);
+})
+
 
 function playRound() {
     const computerChoice = getComputerChoice();
@@ -86,11 +132,15 @@ function playRound() {
     playedRoundDiv.textContent = `Rounds left: ${roundsPlayed}`;
 
     if (roundsPlayed === 0) {
-        winText.textContent = score.textContent;
+        restartMenu = true;
+
+        winText.textContent = "Play Again?";
+        playedRoundDiv.textContent = score.textContent;
         score.textContent = checkWin(humanScore, computerScore);
-        roundsPlayed = 5;
-        humanScore = 0;
-        computerScore = 0;
-        playedRoundDiv.textContent = "Game Over!";
+
+        hands.forEach(hand => hand.style.pointerEvents = "none");
+
+        restartButton.appendChild(restartButtonImage);
     }
+
 }

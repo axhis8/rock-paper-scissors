@@ -18,6 +18,7 @@ Play the game online: [Rock Paper Scissors](https://axhis8.github.io/rock-paper-
 - Random computer choice
 - Score tracking
 - Interactive UI with hover effects
+- Restart Button
 
 ## Built With
 
