@@ -33,34 +33,34 @@ let computerScore = 0;
 let roundsPlayed = 5;
 let choice;
 
-const hands = document.querySelector("#buttons");
+const hands = document.querySelector(".buttons");
 
 hands.addEventListener('click', (event) => {
     let target = event.target;
 
-    switch (target.id) {
-        case "rock":
+    if (target.classList.contains("rock")) {
             choice = "Rock";
-            break;
-        case "paper":
+
+    }
+    else if (target.classList.contains("paper")) {
             choice = "Paper";
-            break;
-        case "scissors":
+
+    }
+    else if (target.classList.contains("scissors")) {
             choice = "Scissors";
-            break;
     }
 
     playRound();
     
 })
 
-const computerHand = document.querySelector("#computerHand");
+const computerHand = document.querySelector(".computer-hand");
 
-const score = document.querySelector("#score");
+const score = document.querySelector(".score");
 
-const winText = document.querySelector("#winText");
+const winText = document.querySelector(".win-text");
 
-const playedRoundDiv = document.querySelector("#roundsPlayed");
+const playedRoundDiv = document.querySelector(".rounds-played");
 
 
 function playRound() {
@@ -94,4 +94,3 @@ function playRound() {
         playedRoundDiv.textContent = "Game Over!";
     }
 }
-

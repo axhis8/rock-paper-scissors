@@ -9,13 +9,9 @@ body {
     background-color: #b8b8b8;
 }
 
-.gameTitle,
-#score {
+#game-title {
     display: flex;
     justify-content: center;
-}
-
-.gameTitle {
     font-size: 4.5em;
     font-weight: 600;
     text-shadow: #918a8a 1px 0 10px;            
@@ -23,35 +19,35 @@ body {
     margin: 50px;    
 }
 
-#roundsPlayed {
-    font-size: 1.7em;
-    font-weight: 500;
-    height: 31.5px;
-}
-
-#score {
-    font-size: 3em;
-    margin: 5px 20px 15px;   
-}
-
-#winText {
-    font-size: 2em;
-    margin-bottom: 100px;
-}
-
-.topUI {
+#top-ui {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.mainUI {
+#main-ui {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-#computerHand {
+.rounds-played {
+    font-size: 1.7em;
+    font-weight: 500;
+    height: 31.5px;
+}
+
+.score {
+    font-size: 3em;
+    margin: 5px 20px 15px;   
+}
+
+.win-text {
+    font-size: 2em;
+    margin-bottom: 100px;
+}
+
+.computer-hand {
     margin-top: 0px;
     transform: scaleX(-1);
 }
@@ -64,18 +60,13 @@ body {
     margin: 0 0 0 80px;
 }
 
-.hands {
-    display: flex;
-    cursor: pointer;
-}
-
 .users {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.playerName {
+.player-name {
     font-size: 4em;
     height: 150px;
     display: flex;
@@ -83,12 +74,13 @@ body {
 }
 
 .hand,
-#computerHand {
+.computer-hand {
     width: 140px;
 }
 
 .hand {
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .hand:hover {
@@ -101,7 +93,6 @@ body {
     transform: scale(1.05);
 }
 
-.computerIcon {
+.computer-icon {
     width: 150px;
 }
-
