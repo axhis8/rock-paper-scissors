@@ -1,3 +1,21 @@
+const handsContainer = document.querySelector(".buttons");
+const computerHand = document.querySelector(".computer-hand");
+const hands = document.querySelectorAll(".hand");
+
+const playedRoundDiv = document.querySelector(".rounds-played");
+const winText = document.querySelector(".win-text");
+const score = document.querySelector(".score");
+
+const restartButton = document.querySelector(".restart-button");
+const restartButtonImage = document.createElement("img");
+
+let humanScore = 0;
+let computerScore = 0;
+let roundsPlayed = 5;
+let restartMenu = false;
+let choice;
+
+
 function getComputerChoice() {
     let randNum = Math.random();
     if (randNum <= 0.33) {
@@ -27,87 +45,6 @@ function checkWin(score1, score2) {
     return "Nobody wins. It's a tie.";
     }   
 }
-
-let humanScore = 0;
-let computerScore = 0;
-let roundsPlayed = 5;
-let restartMenu = false;
-let choice;
-
-const handsContainer = document.querySelector(".buttons");
-const hands = document.querySelectorAll(".hand");
-
-handsContainer.addEventListener('click', (event) => {
-    if (restartMenu) {
-        return;
-    }
-
-    let target = event.target;
-
-    if (target.classList.contains("rock")) {
-            choice = "Rock";
-
-    }
-    else if (target.classList.contains("paper")) {
-            choice = "Paper";
-
-    }
-    else if (target.classList.contains("scissors")) {
-            choice = "Scissors";
-    }
-
-    playRound();
-    
-})
-
-const computerHand = document.querySelector(".computer-hand");
-
-const score = document.querySelector(".score");
-
-const winText = document.querySelector(".win-text");
-
-const playedRoundDiv = document.querySelector(".rounds-played");
-
-const restartButton = document.querySelector(".restart-button");
-
-const restartButtonImage = document.createElement("img");
-restartButtonImage.src = "./images/restartButton.png";
-restartButtonImage.style = "width: 240px; margin-right: 180px; cursor: pointer; transition: 0.2s;";
-
-restartButtonImage.addEventListener('mouseenter', () => {
-    if (restartMenu) {
-    restartButtonImage.style.transform = "scale(1.1)";
-    }
-})
-
-restartButtonImage.addEventListener('mouseleave', () => {
-    if (restartMenu) {
-    restartButtonImage.style.transform = "scale(1)";
-    }
-})
-
-restartButtonImage.addEventListener('mousedown', () => {
-    if (restartMenu) {
-    restartButtonImage.style.transform = "scale(0.9)";
-    }
-})
-
-restartButtonImage.addEventListener('click', () => {
-    roundsPlayed = 5;
-    humanScore = 0;
-    computerScore = 0;
-
-    playedRoundDiv.textContent = "";
-    score.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
-    winText.textContent = "Best of 5";
-
-    hands.forEach(hand => hand.style.pointerEvents = "auto");
-
-    restartMenu = false;
-    restartButtonImage.style.transform = "scale(1)";
-    restartButton.removeChild(restartButtonImage);
-})
-
 
 function playRound() {
     const computerChoice = getComputerChoice();
@@ -144,3 +81,42 @@ function playRound() {
     }
 
 }
+
+
+handsContainer.addEventListener('click', (event) => {
+    if (restartMenu) {
+        return;
+    }
+
+    let target = event.target;
+
+    if (target.classList.contains("rock")) {
+            choice = "Rock";
+
+    }
+    else if (target.classList.contains("paper")) {
+            choice = "Paper";
+
+    }
+    else if (target.classList.contains("scissors")) {
+            choice = "Scissors";
+    }
+
+    playRound();
+    
+})
+
+restartButtonImage.addEventListener('click', () => {
+    roundsPlayed = 5;
+    humanScore = 0;
+    computerScore = 0;
+
+    playedRoundDiv.textContent = "";
+    score.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
+    winText.textContent = "Best of 5";
+
+    hands.forEach(hand => hand.style.pointerEvents = "auto");
+
+    restartMenu = false;
+    restartButton.removeChild(restartButtonImage);
+})

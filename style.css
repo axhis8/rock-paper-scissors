@@ -94,3 +94,19 @@ body {
 .computer-icon {
     width: 150px;
 }
+
+.restart-button > img {
+    content: url("./images/restartButton.png");
+    width: 240px; 
+    margin-right: 180px; 
+    cursor: pointer; 
+    transition: 0.2s;
+}
+
+.restart-button > img:hover {
+    transform: scale(1.1);
+}
+
+.restart-button > img:active {
+    transform: scale(1);
+}
